@@ -5,16 +5,32 @@
                <h2>Отзывы студентов</h2>
                <button id="addComment">Добавить отзыв</button>
                 <select name="" id="select_comments">
-                    <option value="up">По рейтингу (от самого низкого)</option>
-                    <option value="down">По рейтингу (от самого высокого)</option>
-                    <option value="new">По дате (от свежиж)</option>
-                    <option value="old">По дате (от последних)</option>
+                    <option value="down">По рейтингу (от самого низкого)</option>
+                    <option value="up" selected>По рейтингу (от самого высокого)</option>
+                    <option value="new1">По дате (со свежих)</option>
+                    <option value="old">По дате (со старых)</option>
+                    <option value="short">По длине поста (с коротких)</option>
+                    <option value="long">По длине поста (с длинных)</option>
                 </select>
            </div>
             <div class="comments">
                 <div class="rate comments_item">
-                    <div class="rate_header">4.6</div>
-                    <div class="rate_items ri_1"></div>
+                    <div class="comments_header">
+                        <span class="votes_num">4.6</span>
+                        <div class="user_rate">
+                            <div class="startest"></div>
+                            <div class="startest"></div>
+                            <div class="startest"></div>
+                            <div class="startest"></div>
+                            <div class="startest startest-active"></div>
+                        </div>
+                        <div class="votesAmount">(7)</div>
+                    </div>
+                    <div class="stars_container">
+                        <div class="rate_preloader">
+                            <div class="amount_rate">15</div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="comments_nav">

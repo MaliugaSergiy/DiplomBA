@@ -3,42 +3,58 @@
         "name": "alex",
         "rate": 5,
         "post": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias aut culpa porro sit nulla dignissimos blanditiis itaque, aliquid totam unde est, vel natus laborum. Excepturi quas nostrum sapiente, beatae laboriosam ipsum, ",
-        "date": "2017-04-28T11:43:44.400Z"
+        "dateMS": 1493379824400
     },
     {
         "name": "Olga L.",
         "rate": 1,
         "post": "atque quod. Porro et, libero repellat voluptatum quisquam architecto, veritatis quo exercitationem quis fugit excepturi magni, aliquid iure quos consequatur soluta eveniet accusantium  ",
-        "date": "2016-03-15T11:43:44.400Z"
+        "dateMS": 1458042224400
     },
     {
         "name": "Marina K.",
         "rate": "5",
         "post": "eligendi incidunt perferendis. Nesciunt eveniet cum, dolore laborum fuga sequi inventore quam impedit itaque maxime aut magni molestias excepturi at illo blanditiis nostrum dolorem minima? Quae delectus nesciunt quibusdam deleniti a sunt. Enim consequatur quo ipsam totam eveniet repellat id itaque,",
-        "date": "2015-01-13T11:43:44.400Z"
+        "dateMS": 1421149424400
     },
     {
         "name": "MaksiM",
         "rate": "3",
         "post": "atque inventore magni dicta eligendi rem nostrum soluta vero veritatis libero, nemo, ullam sint molestiae explicabo quia dolorum consequuntur! Deleniti nobis, dicta ullam maxime cum.",
-        "date": "2017-02-18T11:43:44.400Z"
+        "dateMS": 1487418224400
     },
     {
         "name": "Oleg",
         "rate": "5",
         "post": "atque inventore magni dicta eligendi rem nostrum soluta vero veritatis libero, nemo, ullam sint molestiae explicabo quia dolorum consequuntur! Deleniti nobis, dicta ullam maxime cum.",
-        "date": "2014-04-14T11:43:44.400Z"
+        "dateMS": 1397475824400
     },
     {
         "name": "Oksana",
         "rate": "2",
         "post": "atque inventore magni dicta eligendi rem nostrum soluta vero veritatis libero, nemo, ullam sint molestiae explicabo quia dolorum consequuntur! Deleniti nobis, dicta ullam maxime cum.",
-        "date": "2013-11-10T11:43:44.400Z"
+        "dateMS": 1384083824400
     },
     {
         "name": "Oksana",
         "rate": "2",
         "post": "atque inventore magni dicta eligendi rem nostrum soluta vero veritatis libero, nemo, ullam sint molestiae explicabo quia dolorum consequuntur! Deleniti nobis, dicta ullam maxime cum.",
-        "date": "2015-04-28T11:43:44.400Z"
+        "dateMS": 1430221424400
     }
 ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

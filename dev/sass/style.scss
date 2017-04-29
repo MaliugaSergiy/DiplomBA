@@ -15,10 +15,9 @@ body {}
 }
 
 .comments_wrapp {
-//    background-color: #ffebeb;
+    //    background-color: #ffebeb;
     padding: 50px 0;
     margin: 0 10px;
-    
     h2 {
         color: $main-text;
         font-family: $header;
@@ -38,7 +37,7 @@ body {}
     .comments {
         display: flex;
         flex-wrap: wrap;
-//        margin: 0 -10px;
+        //        margin: 0 -10px;
         //        background-color: #b48e8e;
         .comments_item {
             flex: 1 270px;
@@ -53,6 +52,44 @@ body {}
                 margin-bottom: 15px;
                 justify-content: space-between;
                 display: flex;
+            }
+            .comments_header {
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-end;
+                .votes_num {
+                    font-size: 50px;
+                }
+            }
+            .stars_container {
+                display: flex;
+                flex-direction: column-reverse;
+                .rate_preloader {
+	                height: 25px;
+                    width: 50px;
+                    background-color: $rate-star;
+                    border-radius: 5px;
+                    position: relative;
+                    &::bofore{
+                        content: "stars";
+                        position: absolute;
+                        width: 20px;
+                        height: 20px;
+                        background-color: #fff7f7;
+                        left: 0;
+                        top: 0;
+                        
+                    }
+                
+                    .amount_rate {
+	                    position: absolute;
+                        left: 10px;
+                        top: 5px;
+                        color: #fff;
+                        font-weight: bold;
+                        font-size: 15px;
+}
+            }
             }
             .data_post {
                 margin-top: auto;
@@ -77,16 +114,15 @@ body {}
         display: flex;
         justify-content: space-between;
     }
-    
     .startest {
-	    width: 18px;
+        width: 18px;
         height: 18px;
         display: inline-block;
-        background-image: url(img/star-rating.png);
+        background-image: url(/img/star-rating1.png);
         background-position: 0 0;
-//        background-size: 85.71428% 85.71428%;
+        //        background-size: 85.71428% 85.71428%;
     }
-    .startest-active{
-        background-position: 0 17px; 
+    .startest-active {
+        background-position: 0 17px;
     }
 }
