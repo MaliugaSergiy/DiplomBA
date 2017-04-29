@@ -1,10 +1,92 @@
-
 @import "_reset";
+@import "_vars";
+@import "_fonts";
 @import "_qqq";
-@import "swttings";
+@import "_swttings";
+body {}
 
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-body{
-    display: flex;
-    font-size: 30px;
+.wrapp_full_width {
+    background-color: $main-bg;
+}
+
+.comments_wrapp {
+//    background-color: #ffebeb;
+    padding: 50px 0;
+    margin: 0 10px;
+    
+    h2 {
+        color: $main-text;
+        font-family: $header;
+        font-size: 35px;
+    }
+    select {
+        width: 250px;
+    }
+    .comments_header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 35px;
+        h2 {
+            margin-right: auto;
+        }
+    }
+    .comments {
+        display: flex;
+        flex-wrap: wrap;
+//        margin: 0 -10px;
+        //        background-color: #b48e8e;
+        .comments_item {
+            flex: 1 270px;
+            //          width: 200px;
+            //            border: 1px solid #000;
+            border-radius: 5px;
+            padding: 25px;
+            margin: 10px;
+            height: 250px;
+            
+            .comm_header {
+                margin-bottom: 15px;
+                justify-content: space-between;
+                display: flex;
+            }
+            .data_post {
+                margin-top: auto;
+            }
+        }
+        .comment {
+            box-shadow: 12px 15px 20px 0px rgba(46, 61, 73, 0.15);
+            background-color: white;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            color: $main-textBL;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: auto;
+            &:hover {
+                box-shadow: 2px 4px 8px 0px rgba(46, 61, 73, 0.2);
+            }
+        }
+    }
+    .comments_nav {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .startest {
+	    width: 18px;
+        height: 18px;
+        display: inline-block;
+        background: url(/img/star-rating.png);
+        background-position: 0 0;
+//        background-size: 85.71428% 85.71428%;
+    }
+    .startest-active{
+        background-position: 0 17px; 
+    }
 }
