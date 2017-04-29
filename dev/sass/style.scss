@@ -29,7 +29,7 @@ body {}
     .comments_header {
         display: flex;
         justify-content: space-between;
-        margin-bottom: 35px;
+        margin-bottom: 15px;
         h2 {
             margin-right: auto;
         }
@@ -64,27 +64,26 @@ body {}
             .stars_container {
                 display: flex;
                 flex-direction: column-reverse;
+                counter-reset: list1;
+                .preloader_item {
+	                display: flex;
+                    justify-content: space-between;
+}
                 .rate_preloader {
-	                height: 25px;
-                    width: 50px;
-                    background-color: $rate-star;
+	                height: 20px;
+//                    width: 80%;
+                    flex: 1;
+                    background: $rate-star1;
                     border-radius: 5px;
                     position: relative;
-                    &::bofore{
-                        content: "stars";
-                        position: absolute;
-                        width: 20px;
-                        height: 20px;
-                        background-color: #fff7f7;
-                        left: 0;
-                        top: 0;
-                        
-                    }
-                
+                    margin: auto;
+                    margin-bottom: 5px;
+                    margin: 0 10px;
+                    
                     .amount_rate {
 	                    position: absolute;
                         left: 10px;
-                        top: 5px;
+                        top: 3px;
                         color: #fff;
                         font-weight: bold;
                         font-size: 15px;
