@@ -3,7 +3,8 @@
         <div class="comments_wrapp">
             <div class="comments_header">
                 <h2>Отзывы студентов</h2>
-                <button id="addComment">Добавить отзыв</button>
+<!--                <button id="addComment">Добавить отзыв</button>-->
+                <a href="#form" class="popup">Добавить отзыв</a>
                 <select name="" id="select_comments">
                     <option value="down">По рейтингу (от самого низкого)</option>
                     <option value="up" selected>По рейтингу (от самого высокого)</option>
@@ -15,40 +16,58 @@
             </div>
             <div class="comments">
                 <div class="rate comments_item">
-                    <div class="comments_header">
-                        <span class="votes_num">4.6</span>
-                        <div class="user_rate">
-                            <div class="startest"></div>
-                            <div class="startest"></div>
-                            <div class="startest"></div>
-                            <div class="startest"></div>
-                            <div class="startest startest-active"></div>
-                        </div>
-                        <div class="votesAmount">(7)</div>
-                    </div>
-                    <div class="stars_container">
-                        <div class="preloader_item">
-                           <div class="before_preloader">1 Star</div>
-                            <div class="rate_preloader">
-                                <div class="amount_rate">15</div>
-                            </div>
-                            <div class="after_preloader">73.6%</div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
             <div class="comments_nav">
                 <a href="#">Prev</a>
                 <a href="#">Next</a>
-                <!--
-                <a href="#"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></a>
-                <a href="#"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i> </a>
--->
             </div>
         </div>
     </div>
 </div>
+<div class="hidden">
+    <form id="form">
+        <input type="text" required name="name" placeholder="Имя"/><br>
+        <input type="text" required name="email" placeholder="E-mail"/>
+        <label>Ваша оценка
+            <select required name="rate" id="">
+                <option value="0" selected disabled></option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </label>
+        <textarea required name="" id="" cols="30" rows="10"></textarea>
+        <button id >Отправить</button>
+    </form>
+</div>
 
+
+<!--
+<div class="comments_header">
+    <span class="votes_num">4.6</span>
+    <div class="user_rate">
+        <div class="startest"></div>
+        <div class="startest"></div>
+        <div class="startest"></div>
+        <div class="startest"></div>
+        <div class="startest startest-active"></div>
+    </div>
+    <div class="votesAmount">(2)</div>
+</div>
+<div class="stars_container">
+    <div class="preloader_item">
+        <div class="before_preloader">1 Star</div>
+        <div class="rate_preloader">
+            <div class="amount_rate">15</div>
+        </div>
+        <div class="after_preloader">73.6%</div>
+    </div>
+</div>
+-->
 
 
 

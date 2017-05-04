@@ -5,6 +5,25 @@
 @import "_swttings";
 body {}
 
+.hidden {
+        display: none;
+}
+
+form#form {
+    padding: 50px 20px;
+    background-color: #fff;
+    max-width: 320px;
+    margin: auto;
+    position: relative;
+    input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    textarea {
+        width: 100%;
+    }
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -40,14 +59,13 @@ body {}
         //        margin: 0 -10px;
         //        background-color: #b48e8e;
         .comments_item {
-            flex: 1 270px;
+            flex: 1 280px;
             //          width: 200px;
             //            border: 1px solid #000;
             border-radius: 5px;
             padding: 25px;
             margin: 10px;
             height: 250px;
-            
             .comm_header {
                 margin-bottom: 15px;
                 justify-content: space-between;
@@ -66,12 +84,13 @@ body {}
                 flex-direction: column-reverse;
                 counter-reset: list1;
                 .preloader_item {
-	                display: flex;
+                    display: flex;
                     justify-content: space-between;
-}
+                    margin-bottom: 10px;
+                }
                 .rate_preloader {
-	                height: 20px;
-//                    width: 80%;
+                    height: 20px;
+                    //                    width: 80%;
                     flex: 1;
                     background: $rate-star1;
                     border-radius: 5px;
@@ -79,16 +98,15 @@ body {}
                     margin: auto;
                     margin-bottom: 5px;
                     margin: 0 10px;
-                    
                     .amount_rate {
-	                    position: absolute;
+                        position: absolute;
                         left: 10px;
                         top: 3px;
                         color: #fff;
                         font-weight: bold;
                         font-size: 15px;
-}
-            }
+                    }
+                }
             }
             .data_post {
                 margin-top: auto;

@@ -107,12 +107,18 @@ gulp.task('json', function(){
         .pipe(connect.reload());
 });
 
+gulp.task('lib', function(){
+    gulp.src('dev/lib/**/*.*')
+        .pipe(gulp.dest('build/lib/'))
+        .pipe(connect.reload());
+});
+
 
 
 gulp.task('removedist', function() { return del.sync('build/**/*.*'); });
 
 gulp.task('default', function(){
-    gulp.start( 'css', 'json', 'html', 'js', 'imagemin', 'server');
+    gulp.start( 'css', 'json', 'lib', 'html', 'js', 'imagemin', 'server');
 
     gulp.watch(['dev/sass/*.*'], function(){
         gulp.start('css');
@@ -132,6 +138,10 @@ gulp.task('default', function(){
 //    gulp.watch(['dev/fonts/**/*.*'], function(){
 //        gulp.start('fonts');
 //    });
+    
+    gulp.watch(['dev/lib/**/*.*'], function(){
+                gulp.start('lib');
+            });
 });
 
 
