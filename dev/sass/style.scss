@@ -3,12 +3,16 @@
 @import "_fonts";
 @import "_qqq";
 @import "_swttings";
+@import "_mp_animation";
+
 body {}
 
 .hidden {
         display: none;
 }
-
+button:disabled { // __________________________DELETE-----------
+    background-color: red;
+}
 form#form {
     padding: 50px 20px;
     background-color: #fff;
@@ -21,6 +25,11 @@ form#form {
     }
     textarea {
         width: 100%;
+        
+    }
+    select {
+        width: 50px;
+        height: 20px;
     }
 }
 
@@ -44,20 +53,62 @@ form#form {
     }
     select {
         width: 250px;
+        appearance: none;
+        padding-left: 10px;
+        option {
+            background-color: transparent;
+        }
     }
     .comments_header {
         display: flex;
         justify-content: space-between;
         margin-bottom: 15px;
+        align-items:stretch;
         h2 {
             margin-right: auto;
+        }
+        select {
+            box-shadow: 5px 6px 13px 0px rgba(46,61,73,.15);
+            border-radius: 0 5px 5px 0;
+            border: NONE;
+            outline: none;
+            transition: 0.3s;
+            &:hover {
+                box-shadow: 1px 3px 8px 0px rgba(46, 61, 73, 0.2);
+            }
+        }
+        a {
+            text-decoration: none;
+            background-color: $main-text;
+            padding: 10px;
+            color: #fff;
+            font-family: $header;
+            font-weight: 600;
+            line-height: 30px;
+            border-radius: 5px 0 0 5px;
+            text-transform: uppercase;
+            transition: 0.5s;
+            box-shadow: 5px 6px 13px 0px rgba(46,61,73,.15);
+            
+            &:hover {
+                background-color:#0585aa;
+                box-shadow: 2px 4px 8px 0px rgba(46, 61, 73, 0.2);
+                }
         }
     }
     .comments {
         display: flex;
         flex-wrap: wrap;
+        font-family: $header;
         //        margin: 0 -10px;
         //        background-color: #b48e8e;
+        
+        .rate {
+            color: $rate;
+            .after_preloader {
+                color: #bcc9d4;
+}
+        }
         .comments_item {
             flex: 1 280px;
             //          width: 200px;
@@ -70,43 +121,65 @@ form#form {
                 margin-bottom: 15px;
                 justify-content: space-between;
                 display: flex;
+                
+            }
+            
+            p {
+                word-wrap: break-word;
             }
             .comments_header {
                 display: flex;
                 justify-content: flex-start;
                 align-items: flex-end;
                 .votes_num {
-                    font-size: 50px;
+                    font-size: 55px;
+                    margin-right: 10px;
+                }
+                .votesAmount {
+                    margin-left: 10px;
                 }
             }
             .stars_container {
                 display: flex;
                 flex-direction: column-reverse;
-                counter-reset: list1;
                 .preloader_item {
                     display: flex;
-                    justify-content: space-between;
                     margin-bottom: 10px;
-                }
-                .rate_preloader {
-                    height: 20px;
-                    //                    width: 80%;
-                    flex: 1;
-                    background: $rate-star1;
-                    border-radius: 5px;
-                    position: relative;
-                    margin: auto;
-                    margin-bottom: 5px;
-                    margin: 0 10px;
-                    .amount_rate {
-                        position: absolute;
-                        left: 10px;
-                        top: 3px;
-                        color: #fff;
-                        font-weight: bold;
-                        font-size: 15px;
+                    align-items: flex-end;
+                    justify-content: center;
+                    .rate_preloader {
+                        height: 20px;
+//                        flex: 1;
+                        width: 60%;
+                        background: $rate-star1;
+                        border-radius: 5px;
+                        position: relative;
+                        margin: auto;
+                        margin-bottom: 5px;
+                        margin: 0 10px;
+                        .amount_rate {
+                            position: absolute;
+                            left: 10px;
+                            top: 3px;
+                            color: #fff;
+                            font-weight: bold;
+                            font-size: 15px;
+                        }
                     }
+                    .before_preloader {
+                        width: 20%;
+                        font-weight: 600;
+                        text-transform: uppercase;
+                        text-align: right;
+                        margin-right: 5px;
+                    }
+                    .after_preloader {
+                        width: 20%;
+                        font-size: 16px;
+                        font-weight: 600;
+}
                 }
+                
             }
             .data_post {
                 margin-top: auto;
@@ -135,7 +208,7 @@ form#form {
         width: 18px;
         height: 18px;
         display: inline-block;
-        background-image: url(/img/star-rating1.png);
+        background-image: url(../img/star-rating1.png);
         background-position: 0 0;
         //        background-size: 85.71428% 85.71428%;
     }

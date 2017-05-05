@@ -16,8 +16,6 @@ $(document).ready(function () {
     comments.send();
 //    var arrComments = JSON.parse(comments.responseText);
     
-
-    
     var arrComments = JSON.parse(localStorage.getItem("comments"));
     
     //console.log(arrComments);
@@ -28,7 +26,6 @@ $(document).ready(function () {
     months.open('GET', 'dates.json', false);
     months.send();
     var arrDates = JSON.parse(months.responseText);
-
     
     // сортировка комментариев
     var configSelect = {
@@ -54,13 +51,12 @@ $(document).ready(function () {
 
     arrComments.sort(configSelect[$("#select_comments").val()]); // параметр сортировки при загрузке страницы, берет значение у select
 
-
-
     // формируем комментарии
-    var totalRate = 0,
+    var totalRate,
         averageRate = 0;
 
     function makeComments() {
+        totalRate = 0;
         arrComments.forEach((i) => {
             totalRate += +i.rate;
             let html = "";
@@ -81,7 +77,7 @@ $(document).ready(function () {
         });
     }
     makeComments();
-    averageRate = totalRate / arrComments.length; // средняя величина оценки
+    
     //console.log(arrComments.length);  //кол-во постов
     //console.log(totalRate); // сумма всех оценок
     //console.log(Math.round(averageRate)); // округленная величина оценки
@@ -103,6 +99,7 @@ $(document).ready(function () {
     var rateBox = document.querySelector(".rate");
 
     function makePreloaderBox() {
+        averageRate = totalRate / arrComments.length; // средняя величина оценки
         let html = "";
         html += `<div class="comments_header">`;
         html += `<span class="votes_num">${averageRate.toFixed(1)}</span>`;
@@ -147,8 +144,6 @@ $(document).ready(function () {
         makeComments();
     };
 
-    //
-
     // формируем отображение звездочек рейтинга
 
     function setRateStars(n) {
@@ -166,7 +161,12 @@ $(document).ready(function () {
     }
     
     
-    $(".popup").magnificPopup();
+    $(".popup").magnificPopup({
+        removalDelay: 300,
+        mainClass: 'mfp-fade',
+        closeOnBgClick: false
+    });
+    
     var currentPost = {};
     $("#form").on("submit", function(e){
         e.preventDefault();
@@ -183,6 +183,53 @@ $(document).ready(function () {
         makePreloaderBox();
         $.magnificPopup.close();
     });
+    
+    //---------------------------------------
+    
+//    function devideTenBy(num) {
+//        if(num === 0){
+//            throw "a nol delit nelzya!";
+//        }else return 10/num;
+//    }
+//    
+//    
+//
+//    
+//    try {
+//        devideTenBy (0);  
+//    } catch(error) {
+//        console.log(error);
+//    }
+//    
+//    var textarea = document.getElementById("textareaJSON");
+//    
+//    var butttt = document.getElementById("checkJSON");
+//    butttt  .addEventListener("click", checkJSON);
+//    
+//    function checkJSON() {
+//        
+//        butttt.disabled = true;
+//        setTimeout(function(){
+//            try {
+//                JSON.parse(textarea.value);
+//                alert("Alles Gut!");
+//            } catch (error) {  
+//                console.log(error);
+//                alert("ERROR");}
+//            finally {
+//                butttt.disabled = false;
+//            }
+//        }, 1000); 
+//
+//
+//    }
+    
+    
+    
+    
+    
+    
+    //---------------------------------------
     
 });
 
