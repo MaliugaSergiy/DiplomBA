@@ -4,15 +4,126 @@
 @import "_qqq";
 @import "_swttings";
 @import "_mp_animation";
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&subset=cyrillic,cyrillic-ext,latin-ext');
 
 body {}
 
 .hidden {
         display: none;
 }
-button:disabled { // __________________________DELETE-----------
-    background-color: red;
+
+//----------------------------
+// UNSER HEADER
+
+.white_box {
+    height: 100px;
 }
+
+.wrap_full_width_anderHeader {
+    box-sizing:border-box;
+    width: 100%;
+    height: 520px;
+    background: url(/img/computer-2242264_1920.jpg) no-repeat;
+    background-size: cover;
+    
+
+    color: #fff;
+    text-shadow: 2px 2px 8px rgb(65, 65, 65);
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    padding-bottom: 60px;
+    display: flex;
+    align-items:center;
+    align-content:center;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+//    background-size: 50% 50% ;
+    & .container {
+        .round_button {
+	       width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: $main-text;
+            position: absolute;
+            bottom: -40px;
+            cursor: pointer;
+}
+    }
+    h1 {
+        width: 100%;
+        font-weight: 700;
+        font-size: 50px;
+        
+    }
+    p{
+        margin-top: 20px;
+        font-size: 25px;
+        max-width: 900px;
+        display: block;
+        text-align: center;
+        font-family: $header;
+        padding: 5px;
+    }
+    .header_btns {
+        
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        button {
+            margin-top: 30px;
+            
+            width: 200px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 8px 8px 8px 0px rgba(13, 39, 59, 0.15);
+            transition: 0.3s;
+            outline: none;
+            &.subs {
+                background-color: rgba(46, 61, 73, 0.13);
+                border: 2px solid rgba(77, 215, 200, 0.56);
+                margin-right: 20px;
+                transition: 0.5s;
+                
+                &:hover {
+                    background-color: rgba(77, 215, 200, 0.56);
+                }
+                
+            } 
+            &.test_less {
+                border: none;
+                background-color: $main-text;
+                padding: 17px;
+                transition: 0.5s;
+                color: #fff;
+                &:hover {
+                    background-color: rgba(77, 215, 200, 0.56) ;
+                    color: #fff;
+                }
+            }
+            
+            &:hover {
+                
+                box-shadow: 1px 3px 8px 0px rgba(46, 61, 73, 0.2);
+                
+            }
+        }
+    }
+}
+
+
+
+
+
+//----------------------------
+
+
+
 form#form {
     padding: 50px 20px;
     background-color: #fff;
@@ -28,8 +139,9 @@ form#form {
         
     }
     select {
-        width: 50px;
+        width: 110px;
         height: 20px;
+        
     }
 }
 
@@ -43,6 +155,52 @@ form#form {
 }
 
 .comments_wrapp {
+    
+    .comments_nav {
+        margin-top: 15px;
+        a {
+            text-decoration: none;
+            position: relative;
+            color: $main-text;
+            font-family: $header;
+            font-size: 20px;
+            text-shadow: 4px 4px 5px rgba(150, 150, 150, 1);
+            transition: 0.2s;
+            font-weight: bold;
+            text-transform: uppercase;
+            position: relative;
+            
+            &:first-child::before {
+                content: " \2190  ";
+                position: relative;
+                left: 0px;
+                transition: 0.3s;
+            }
+            &:last-child::after {
+                content: " \2192  ";
+                position: relative;
+                left: 0px;
+                transition: 0.3s;
+            }
+            
+            &:hover {
+                text-shadow: 2px 2px 4px rgba(150, 150, 150, 1);
+            }
+            &:hover::before {
+                left: -5px;
+            }
+            &:hover::after {
+                left: 5px;
+            }
+            
+        }
+        
+        
+    }
+    
+    
+    
+    
     //    background-color: #ffebeb;
     padding: 50px 0;
     margin: 0 10px;
@@ -57,6 +215,7 @@ form#form {
         padding-left: 10px;
         option {
             background-color: transparent;
+            padding: 5px;
         }
     }
     .comments_header {
@@ -121,7 +280,31 @@ form#form {
                 margin-bottom: 15px;
                 justify-content: space-between;
                 display: flex;
-                
+                .user_name {
+                    font-size: 25px;
+                    font-weight: bold;
+                    display:block;
+                    position: relative;
+//                    background-color: red;
+                    padding: 10px;
+                    overflow: hidden;
+                    transition: color .3s cubic-bezier(0.11, 0.7, 0, 1);
+                    &::after{
+                        position: absolute;
+                        bottom: 5px;
+                        left: 0;
+                        display: block;
+                        width: 100%;
+                        height: 2px;
+                        background-color: $rate-star;
+                        content: "";
+                        border-bottom: 1px solid #fff500;
+                        transform: translate3d(-101%,0,0);
+                        transition: transform .3s cubic-bezier(0.11, 0.7, 0, 1);
+                    
+                    }
+                    
+                }
             }
             
             p {
@@ -183,6 +366,10 @@ form#form {
             }
             .data_post {
                 margin-top: auto;
+            }
+            
+            &:hover .user_name::after {
+                transform: translate3d(0,0,0);
             }
         }
         .comment {

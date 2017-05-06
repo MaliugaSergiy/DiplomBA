@@ -184,53 +184,6 @@ $(document).ready(function () {
         $.magnificPopup.close();
     });
     
-    //---------------------------------------
-    
-//    function devideTenBy(num) {
-//        if(num === 0){
-//            throw "a nol delit nelzya!";
-//        }else return 10/num;
-//    }
-//    
-//    
-//
-//    
-//    try {
-//        devideTenBy (0);  
-//    } catch(error) {
-//        console.log(error);
-//    }
-//    
-//    var textarea = document.getElementById("textareaJSON");
-//    
-//    var butttt = document.getElementById("checkJSON");
-//    butttt  .addEventListener("click", checkJSON);
-//    
-//    function checkJSON() {
-//        
-//        butttt.disabled = true;
-//        setTimeout(function(){
-//            try {
-//                JSON.parse(textarea.value);
-//                alert("Alles Gut!");
-//            } catch (error) {  
-//                console.log(error);
-//                alert("ERROR");}
-//            finally {
-//                butttt.disabled = false;
-//            }
-//        }, 1000); 
-//
-//
-//    }
-    
-    
-    
-    
-    
-    
-    //---------------------------------------
-    
 });
 
 // 
