@@ -29,10 +29,10 @@ header {
     .container {
         display: flex;
         padding: 20px 5px;
-        justify-content: flex-start;
+        justify-content: space-between;
         transition: 0.3s;
         .wrapp_header_left {
-            width: 100%;
+//            width: 100%;
             display: flex;
             justify-content: space-between;
             .logo {
@@ -50,7 +50,6 @@ header {
                 a {
                     text-transform: uppercase;
                     display: block;
-                    //                background: #000;
                     text-decoration: none;
                     margin: auto;
                     padding: 10px;
@@ -67,8 +66,10 @@ header {
         }
         ul {
             display: flex;
+            flex-grow: 1;
             align-items: stretch;
             align-content: stretch;
+//            margin: auto;
             li {
                 display: flex;
                 //                background-color: #f02323;
@@ -77,15 +78,20 @@ header {
                 a {
                     display: block;
                     padding: 15px;
-                    //                    margin-right: 5px;
-                    //                    background-color: #a34b4b;
                     text-transform: uppercase;
                     text-decoration: none;
                     font-family: $header;
                     font-weight: 600;
-                    font-size: 25px;
+                    font-size: 20px;
                     color: $rate;
+                    text-align: center;
                     transition: 0.3s;
+                    width: 100px;
+                    &:hover {
+                        background-color: $main-text;
+                        color: #fff;
+                        border-radius: 5px;
+                    }
                 }
             }
         }
@@ -99,6 +105,7 @@ header {
         .container {
             flex-wrap: wrap;
             .wrapp_header_left {
+                width: 100%;
             .logo {
                 margin-right: 0;
                 }
@@ -113,7 +120,7 @@ header {
                 top: 100%;
                 width: 50%;
                 flex-direction: column;
-                align-items: center;
+                align-items:center;
                 overflow: hidden;
                 border-radius: 0 0 5px 0;
                 box-shadow: 8px 8px 8px 0px rgba(13, 39, 59, 0.15);
@@ -125,11 +132,14 @@ header {
                     width: 100%;
                     a {
                         color: #fff;
+                        text-align: left;
+                        width: 100%;
                         background-color: rgba(77, 215, 200, 0.69);
                         
                         &:hover {
                             background-color: rgba(77, 215, 200, 0.97);
                             padding-left: 30px;
+                            border-radius: 0;
                         }
                     }
                 }
@@ -275,6 +285,77 @@ header {
         }
     }
 }
+
+//----------------------------
+.abut_course {
+    .container {
+        padding: 10px;
+        h2 {
+            margin-right: auto;
+            padding-top: 30px;
+            color: $main-text;
+            font-family: $header;
+            font-size: 45px;
+        }
+        .text {
+            margin: 1rem 0;
+            font-family: $header;
+            font-size: 20px;
+        }
+
+        .accordeon {
+            margin: 2rem 0;
+        }
+
+        .accordeon_item {
+            background: #ddd;
+            border-radius: $radius;
+            margin-bottom: 0.5rem;
+            box-shadow: 8px 9px 15px 0 rgba(46,61,73,.15);
+        }
+
+        .active > .accordeon_title {
+            border-radius: $radius $radius 0 0;
+
+            &:after {
+                content: '\f056';
+            }
+        }
+
+        .accordeon_title {
+            cursor: pointer;
+            letter-spacing: 2px;
+            
+            font-family: $header;
+            padding: 0.8rem;
+            color: #fff;
+            font-weight: bold;
+            text-transform: uppercase;
+            background: $main-text;
+            border-radius: $radius;
+
+            &:after {
+                font-family: 'FontAwesome', sans-serif;
+                float: right;
+                content: '\f055';
+            }
+        }
+
+        .accordeon_content {
+            padding: 0.8rem;
+            
+            border-radius: $radius;
+        }
+
+        
+    }
+}
+
+
+
+
+
+
 
 //----------------------------
 form#form {
