@@ -1,34 +1,20 @@
 
-<div class="white_box"></div>
-   
-   
-<div class="wrap_full_width_anderHeader">
-    <div class="container">
-        <h1>Frontend Web програмирование. JavaScript </h1>
-        <p> Хотите научиться придавать динамичности и интерактивности Вашему сайту, манипулировать элементами на нем, а так же научиться пользаваться готовыми решениями и библиотеками на базе JavaScript?
-        </p>
-        <div class="header_btns">
-            <button type="button" class="subs">Записаться на курс</button>
-            <button type="button" class="test_less">Пробный урок</button>
-            <div class="round_button"></div>
-        </div>
-    </div>
-</div>
 <div class="wrapp_full_width">
     <div class="container">
         <div class="comments_wrapp">
             <div class="comments_header">
                 <h2>Отзывы студентов</h2>
-<!--                <button id="addComment">Добавить отзыв</button>-->
-                <a href="#form" class="popup">Добавить отзыв</a>
-                <select name="" id="select_comments">
-                    <option value="down">По рейтингу (от самого низкого)</option>
-                    <option value="up" selected>По рейтингу (от самого высокого)</option>
-                    <option value="new1">По дате (со свежих)</option>
-                    <option value="old">По дате (со старых)</option>
-                    <option value="short">По длине поста (с коротких)</option>
-                    <option value="long">По длине поста (с длинных)</option>
-                </select>
+                <div class="right_wrapp">
+                    <a href="#form" class="popup rm">Добавить отзыв</a>
+                    <select name="" class=" rm" id="select_comments">
+                        <option value="down">По рейтингу (от самого низкого)</option>
+                        <option value="up" selected>По рейтингу (от самого высокого)</option>
+                        <option value="new1">По дате (со свежих)</option>
+                        <option value="old">По дате (со старых)</option>
+                        <option value="short">По длине поста (с коротких)</option>
+                        <option value="long">По длине поста (с длинных)</option>
+                    </select>
+                </div>
             </div>
             <div class="comments">
                 <div class="rate comments_item">
@@ -44,8 +30,8 @@
 </div>
 <div class="hidden">
     <form id="form">
-        <input type="text" required name="name" placeholder="Имя"/><br>
-        <input type="text" required name="email" placeholder="E-mail"/>
+        <input type="text" required name="name" placeholder="Имя" /><br>
+        <input type="text" required name="email" placeholder="E-mail" />
         <label>
             <select required name="rate" id="">
                 <option value="0" selected disabled>Ваша оценка</option>
@@ -57,7 +43,7 @@
             </select>
         </label>
         <textarea required name="post" id="" cols="30" rows="10"></textarea>
-        <button id >Отправить</button>
+        <button id>Отправить</button>
     </form>
 </div>
 
