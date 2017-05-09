@@ -287,6 +287,8 @@ header {
 }
 
 //----------------------------
+
+// about course
 .abut_course {
     .container {
         padding: 10px;
@@ -297,10 +299,51 @@ header {
             font-family: $header;
             font-size: 45px;
         }
+        .column {
+            column-count: 2;
+        }
         .text {
             margin: 1rem 0;
             font-family: $header;
             font-size: 20px;
+            counter-reset: section;
+            
+            span {
+                font-weight: bold;
+            }
+            
+            a {
+                text-decoration: none;
+                color: #0585aa;
+                transition: 0.3s;
+                
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+            
+            .second_counter {
+                margin-top: 15px;
+                font-weight: bold;
+                counter-reset: subsection;
+                &::before {
+                    counter-increment: section;
+                    content: counter(section) '. ';
+                }
+                p {
+                    font-weight: 400;
+                    padding-left: 20px;
+                    &::before {
+                        counter-increment: subsection;
+                        content: counter(section) '.' counter(subsection) '. ';
+                    }
+                }
+                p:first-child {
+                    margin-top: 5px;
+                }
+                
+                
+            }
         }
 
         .accordeon {
@@ -308,37 +351,112 @@ header {
         }
 
         .accordeon_item {
-            background: #ddd;
+            background: $main-bg;
             border-radius: $radius;
-            margin-bottom: 0.5rem;
-            box-shadow: 8px 9px 15px 0 rgba(46,61,73,.15);
+            margin-bottom: 15px;
+            box-shadow: 8px 9px 5px 0 rgba(46,61,73,.15);
+            transition: 0.3s;
+            &:hover {
+                box-shadow: 2px 4px 5px 0 rgba(46,61,73,.15);
+                transform: translateY(3px);
+            }
+            
+            ul li {
+                padding-left: 10px;
+                font-family: $header;
+                font-size: 20px;
+                &::before {
+                    content: "	\2022"; 
+                    margin-right: 5px;
+                }
+            }
         }
-
+        .accordeon_item.active {
+            transform: translateY(3px);
+            box-shadow: 2px 4px 5px 0 rgba(46,61,73,.15);
+        }
         .active > .accordeon_title {
             border-radius: $radius $radius 0 0;
-
+            background-color: $rate-star;
+            color: $main-text;
+            
             &:after {
                 content: '\f056';
+            
             }
         }
 
         .accordeon_title {
             cursor: pointer;
             letter-spacing: 2px;
-            
+            transition: 0.3s;
             font-family: $header;
-            padding: 0.8rem;
+            padding: 1rem;
+            padding-left: 50px;
             color: #fff;
             font-weight: bold;
             text-transform: uppercase;
             background: $main-text;
             border-radius: $radius;
+            position: relative;
+            
+            &::before {
+                content: "";
+                position: absolute;
+                left: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+                background-image: url(../img/sprite3.png);
+                background-position: -32px 0px;
+                width: 32px;
+                height: 32px;
+            }
+            
+            
 
             &:after {
                 font-family: 'FontAwesome', sans-serif;
                 float: right;
                 content: '\f055';
             }
+        }
+        
+        .at_1::before {
+            background-position: 0px 0px;
+        }
+        .at_2::before {
+            background-position: -96px -32px;
+        }
+        .at_3::before {
+            background-position: -64px -64px;
+        }
+        .at_4::before {
+            background-position: -64px 0px;
+        }
+        .at_5::before {
+            background-position: -32px -32px;
+        }
+        .at_6::before {
+            background-position: -32px 0px;
+        }
+        
+        .active > .at_1::before {
+            background-position: -32px -64px;
+        }
+        .active > .at_2::before {
+            background-position: -96px -64px;
+        }
+        .active > .at_3::before {
+            background-position: -96px 0px;
+        }
+        .active > .at_4::before {
+            background-position: -64px -32px;
+        }
+        .active > .at_5::before {
+            background-position: 0px -32px;
+        }
+        .active > .at_6::before {
+            background-position: 0px -64px;
         }
 
         .accordeon_content {
@@ -351,8 +469,15 @@ header {
     }
 }
 
-
-
+@media screen and (max-width:800px) {
+    .abut_course {
+        .container {
+            .column {
+                column-count: 1;
+            }
+        }
+    }
+}
 
 
 
@@ -384,6 +509,7 @@ form#form {
 
 .wrapp_full_width {
     background-color: $main-bg;
+    box-shadow: 0 -5px 8px 0 rgba(13,39,59,.15);
 }
 
 .comments_wrapp {
