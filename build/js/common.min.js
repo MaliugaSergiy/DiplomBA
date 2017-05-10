@@ -66,12 +66,16 @@ $(document).ready(function () {
             let month = arrDates[language][date.getMonth()].toLowerCase();
             let dateToPost = `${date.getDate()} ${month} ${date.getFullYear()} `;
             html += `<div class="comment comments_item">`;
+            
+            html += `<div class="comment_content">`;
+            html += `<span class="closeModal">&times;</span>`;
             html += `<div class="comm_header">`;
             html += `<p class="user_name">${i.name}</p>`;
             html += setRateStars(i.rate);
             html += `</div>`;
             html += `<p class="user_post">${i.post}</p>`;
             html += `<div class="data_post">${dateToPost}</div>`;
+            html += `</div>`;
             html += `</div>`;
             connentBox.insertAdjacentHTML("beforeEnd", html);
         });
@@ -255,6 +259,26 @@ $(document).ready(function () {
             $(this).next().slideDown();
         }
     });
+    
+    //---------------------
+    
+    //related course
+    
+    var modalContent = $(".modalCourse");
+    var closeModal = $(".closeModal");
+
+    modalContent.on("click", function(e){
+
+        console.log(e.target.tagName);
+        if (e.target.tagName != "SPAN") {
+            $(this).addClass("modalActive");
+        } else{
+            $(this).removeClass("modalActive");
+        }
+    })
+    
+    
+    
 });
 
 

@@ -72,7 +72,7 @@ gulp.task('image', function () {
 gulp.task('css', function () {
     gulp.src('dev/sass/style.scss')
         //		.pipe(concatCss('style.css'))
-        .pipe(sass())
+        .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer())
         .pipe(cleanCSS({
             compatibility: 'ie8'
