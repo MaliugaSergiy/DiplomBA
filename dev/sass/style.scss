@@ -185,13 +185,38 @@ header {
             position: absolute;
             bottom: -40px;
             cursor: pointer;
+//            position: relative;
             display: flex;
+            align-items: center;
             box-shadow: 0px 7px 8px 0px rgba(13, 39, 59, 0.15);
             transition: 0.5s;
+            
+            &::before {
+                content: "";
+                display: block;
+                width: 23px;
+                height: 28px;
+                
+                margin: auto;
+                flex: 0 1 auto;
+//                position: absolute;
+                
+                //                left: 50%;
+                //                top: 50%;
+                //                transform: translateY(-50%);
+                background: #fff;
+                background: url(../img/js_arrov.png);
+                //                z-index: 9999;
+            }
+            
             &:hover {
                 box-shadow: 0px 2px 8px 0px rgba(13, 39, 59, 0.15);
             }
-            &:hover i {
+            
+            
+            
+            &:hover i,
+            &:hover::before{
                 animation: arrow 0.8s both ease-in-out infinite alternate;
                 text-shadow: 2px 2px 5px rgb(43, 150, 146);
             }
