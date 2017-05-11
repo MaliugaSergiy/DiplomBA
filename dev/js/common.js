@@ -269,6 +269,7 @@ $(document).ready(function () {
     var modalContent = $(".modalCourse");
     var closeModal = $(".closeModal");
 
+    
     modalContent.on("click", function(e){
 
         console.log(e.target.tagName);
@@ -277,21 +278,44 @@ $(document).ready(function () {
         } else{
             $(this).removeClass("modalActive");
         }
-    })
+        
+//        $(this).toggleClass("modalActive");
+        
+        
+    });
     
     
     // href inner links
     
     $(".rec_courses:before").on('click', function(){
         console.log("dsdsda");
-    })
+    });
     
     $('a[data-target^="anchor"], [data-target^="anchor"] ').on("click.smoothscroll", function(){
         var target = $(this).attr("href"),
             bl_top = $(target).offset().top - 70;
         $('body, html').animate({scrollTop: bl_top}, 700);
         return false;
-    })
+    });
+    
+    // button arrow to UP
+    
+    $("body").append("<button class='btn_up'/>");
+    
+    $(window).scroll(function(){
+        if ($(window).scrollTop() > 50) {
+            $(".btn_up").addClass("activeB");
+        }
+        else {
+            $(".btn_up").removeClass("activeB");
+        }
+    });
+    
+    $(".btn_up").on("click", function(){
+       $("body").animate({'scrollTop': 0}, 800); 
+       $("html").animate({'scrollTop': 0}, 800); 
+        $(this).removeClass("activeB");
+    });
     
     
 });

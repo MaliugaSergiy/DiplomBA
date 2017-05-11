@@ -684,8 +684,18 @@ header {
                 width: 100%;
                 height: 100%;
                 margin: 0;
+                top: 0;
+                left: 0;
+                background-color: rgba(13, 39, 59, 0.85);
+                &:hover {
+                    background-color: rgba(13, 39, 59, 0.85);
+                    transform: none;
+                }
                 .modalContent {
                     margin: auto;
+                    width: 70%;
+                    height: 50%;
+                    background-color: white;
                 }
             }
         }
@@ -1077,3 +1087,50 @@ form#form {
         background-position: 0 17px;
     }
 }
+
+//----------------------------------------------------
+
+// button to top
+
+.btn_up {
+    position: fixed;
+    opacity: 0;
+    transition: opacity 1s;
+    bottom: 50px;
+    right: -999px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid rgba(0, 110, 147, 0.83);
+    z-index: 100;
+    background: rgba(0, 158, 212, 0.54);
+    display: flex;
+    cursor: pointer;
+    box-shadow: 8px 8px 8px 0px rgba(13, 39, 59, 0.15);
+    outline: none;
+    &:hover {
+        box-shadow: 3px 3px 8px 0px rgba(13, 39, 59, 0.15); 
+        background: rgb(0, 158, 212);
+        border: 2px solid rgb(0, 110, 147);
+    }
+    &::after {
+        content: "\f077";
+        font-family: 'FontAwesome', sans-serif;
+        color: rgba(255, 255, 255, 0.67);
+        font-size: 20px;
+        margin: auto;
+    }
+    &:hover::after{
+        animation: arrowUp 0.8s both infinite;
+        color: #fff;
+    }
+    &.activeB {
+        opacity: 1;
+        right: 50px;
+    }
+}
+
+
+
+
+
