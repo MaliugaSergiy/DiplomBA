@@ -222,18 +222,20 @@ $(document).ready(function () {
     
     var computedStyleHeader = getComputedStyle(headerEl);
     
-    function setPaddingTonderHeader() {
-        document.querySelector(".wrap_full_width_anderHeader").style.marginTop = computedStyleHeader.height;
-    }
-    setPaddingTonderHeader();
+//    function setPaddingTonderHeader() {
+//        document.querySelector(".wrap_full_width_anderHeader").style.marginTop = computedStyleHeader.height;
+//    }
+//    setPaddingTonderHeader();
     $(window).on("scroll", function(){
-        console.log("dsdsds");
-        if($(this).scrollTop() > 20) {
+        if($(this).scrollTop() > 77) {
+            
             $(".header .container").css("padding", "5px");
+            $(".header").css("background", "white");
 //            $(".header").css("position", "fixed");
 //            setPaddingTonderHeader()
         } else {
             $(".header .container").css("padding", "");
+            $(".header").css("background", "");
 //            $(".header").css("position", "");
 //            setPaddingTonderHeader()
         }
