@@ -460,7 +460,7 @@ header {
             border-radius: $radius;
             position: relative;
             
-            &.rec_courses::before {
+            &.rec_courses a[data-target^="anchor"] {
                 content: "";
                 display: block;
                 position: absolute;
@@ -471,7 +471,11 @@ header {
                 cursor: pointer;
                 height: 64px;
                 background-image: url(../img/Arrow_Luxury_Down.png);
-                animation: arrowDown 1.1s both infinite ;
+                animation: arrowDown 1.1s both infinite;
+                
+                &:hover {
+                    animation: none;
+                }
             }
         }
     }
