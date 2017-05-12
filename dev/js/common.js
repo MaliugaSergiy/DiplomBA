@@ -312,9 +312,10 @@ $(document).ready(function () {
     });
     
     $(".btn_up").on("click", function(){
+        $(this).removeClass("activeB");
        $("body").animate({'scrollTop': 0}, 800); 
        $("html").animate({'scrollTop': 0}, 800); 
-        $(this).removeClass("activeB");
+        
     });
     
     
