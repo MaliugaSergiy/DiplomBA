@@ -18,6 +18,9 @@ var minify = require('gulp-babel-minify');
 var imagemin = require('gulp-imagemin');
 var cache = require('gulp-cache');
 var del = require('del');
+var browserify = require('browserify');
+var babelify = require('babelify');
+var source = require('vinyl-source-stream');
 //var browserSync =   require('browser-sync');
 
 gulp.task('sprite', function () {
@@ -82,17 +85,32 @@ gulp.task('css', function () {
         .pipe(connect.reload());
 });
 
-gulp.task('js', function () {
+/*gulp.task('js', function () {
     gulp.src('dev/js/common.js')
-
-        //        .pipe(babel({
-        //            presets: ['es2015']
-        //        }))
+		.pipe(babel({
+			presets: ['es2015']
+		}))
         //        .pipe(minify())
         .pipe(rename('common.min.js'))
         .pipe(gulp.dest('build/js/'))
         .pipe(connect.reload());
+});*/
+
+gulp.task('js', () => {
+	return browserify('dev/js/common.js', {debug: true})
+		.transform(babelify, {
+			compact: false,
+			presets: [
+				'es2015',
+				'react'
+			],
+			sourceMaps: false
+		})
+		.bundle()
+		.pipe(source('common.min.js'))
+		.pipe(gulp.dest('build/js/'));
 });
+
 
 gulp.task('html', function () {
     gulp.src('dev/**/*.html')

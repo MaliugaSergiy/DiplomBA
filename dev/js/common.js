@@ -1,7 +1,11 @@
+import Parallax from './parallax-js';
+
 $(document).ready(function () {
+	var scene = $('#scene').get(0);
+	var parallax = new Parallax(scene);
     // контейнер с комментариями
-    var connentBox = document.querySelector(".comments");
-    var startContentComments = connentBox.innerHTML;
+    let connentBox = document.querySelector(".comments"),
+		startContentComments = connentBox.innerHTML;
 
     // считываем JSON
     var comments = new XMLHttpRequest();
@@ -137,7 +141,6 @@ $(document).ready(function () {
     }
     makePreloaderBox();
     connentBox.innerHTML = `<div class="rate comments_item"> ${rateBox.innerHTML} </div>`;
-    var startContentComments = connentBox.innerHTML;
     makeComments();
 
     $("#select_comments").on("change", sortMeker); // событие на select
