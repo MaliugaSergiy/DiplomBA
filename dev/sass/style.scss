@@ -1180,53 +1180,7 @@ form#form {
         width: 100%;
     }
 
-    input[type=checkbox] {
-        display: none;
-    }
-
-    label {
-        cursor: pointer;
-        display: inline-block;
-        margin-right: 1em;
-        padding: 0.4em 0;
-    }
-
-    button {
-        background: #555;
-        border: 10px solid #00ffaa;
-        cursor: pointer;
-        display: block;
-        font-family: monospace;
-        font-size: 24px;
-        height: 80px;
-        left: 10%;
-        line-height: 60px;
-        margin: 0;
-        outline: none;
-        padding: 0 1.2em;
-        position: absolute;
-        text-align: right;
-        top: 260px;
-        width: 80%;
-    }
-    button:hover {
-        background: #00ffaa;
-    }
-
-    input[type=checkbox] + label:before {
-        background: #555;
-        content: '';
-        display: inline-block;
-        height: 16px;
-        margin-right: 8px;
-        position: relative;
-        top: 1px;
-        width: 16px;
-    }
-
-    input[type=checkbox]:checked + label:before {
-        background: #00ffaa;
-    }
+    
 
     .container {
         margin: 0 auto;
@@ -1265,21 +1219,27 @@ form#form {
     }
 
     .layer:nth-child(1) {
-        opacity: 0.15;
+        opacity: 1;
+//        animation: parallaxBlurReverse 3s both ease-in-out infinite alternate;
     }
     .layer:nth-child(1) button {
         transform: rotate(150deg);
+        
     }
 
     .layer:nth-child(2) {
         opacity: 0.3;
+        animation: parallaxBlur 3s both ease-in-out infinite alternate;
+//        filter: blur(3px);
     }
     .layer:nth-child(2) button {
         transform: rotate(120deg);
     }
 
     .layer:nth-child(3) {
-        opacity: 0.45;
+        animation: parallaxBlurReverse 3s both ease-in-out infinite alternate;
+        opacity: 0.4;
+        
     }
     .layer:nth-child(3) button {
         transform: rotate(90deg);

@@ -141,6 +141,7 @@ $(document).ready(function () {
     }
     makePreloaderBox();
     connentBox.innerHTML = `<div class="rate comments_item"> ${rateBox.innerHTML} </div>`;
+    startContentComments = connentBox.innerHTML;
     makeComments();
 
     $("#select_comments").on("change", sortMeker); // событие на select
