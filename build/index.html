@@ -43,19 +43,19 @@
         <div class="wrapp_header_left">
             <div class="logo"></div>
             <div class="menu_bar">
-                <a href="#" class="bt-menu"><i class="fa fa-bars" aria-hidden="true"></i>меню</a>
+                <a href="#" class="bt-menu"><i class="fa fa-bars" aria-hidden="true"></i></a>
             </div>
         </div>
         <ul class="nav">
-            <li><a data-target="anchor" href="#anderHeader">Старт</a></li>
-            <li><a data-target="anchor" href="#about_course">О курсе</a></li>
-            <li><a data-target="anchor" href="#related_course"> Смежные курсы</a></li>
-            <li><a data-target="anchor" href="#client_comments">Отзывы</a></li>
-            <li><a data-target="anchor" href="#">Item_5</a></li>
+            <li><a data-target="anchor" class="link-1 activeNavLink" id="nav1" href="#anderHeader">Старт</a></li>
+            <li><a data-target="anchor" class="link-2" id="nav2" href="#about_course">О курсе</a></li>
+            <li><a data-target="anchor" class="link-3" id="nav3" href="#related_course"> Смежные курсы</a></li>
+            <li><a data-target="anchor" class="link-4" id="nav4" href="#client_comments">Отзывы</a></li>
+            <li><a data-target="anchor" class="link-5" href="#">Item_5</a></li>
         </ul>
     </div>
 </header>
-<div id="anderHeader" class="wrap_full_width_anderHeader">
+<div id="anderHeader" data-pos="pos-1" class="wrap_full_width_anderHeader">
 <!--    <div class="parallax"></div>-->
     <div id="scene" class="scene">
         <div class="layer" data-depth="0.00"></div>
@@ -84,7 +84,7 @@
 <img src="img/bg_sm_blur.png">
 <img src="img/bg_lg.png">-->
 
-<div id="about_course" class="abut_course">
+<div id="about_course" data-pos="pos-2" data-section="section" class="abut_course">
     
     <div class="container">
         <h2>О курсе</h2>
@@ -189,8 +189,8 @@
     </div>
 </div>
 
-<div id="related_course" class="related_course wrapp_full_width" >
-<!--<div id="related_course" class="related_course wrapp_full_width parallax-window" data-parallax="scroll" data-image-src="/img/wall.gif" data-speed="0.2">-->
+<div id="related_course" data-pos="pos-3" class="related_course wrapp_full_width" >
+<!--<div id="related_course" class="related_course wrapp_full_width parallax-window" data-parallax="scroll" data-image-src="/img/wall.gif" data-speed="0.2" data-position="top center">-->
     <div class="parallax"></div>
     <div class="container">
         <h2>Смежные курсы</h2>
@@ -237,7 +237,7 @@
 
 
 
-<div id="client_comments" class="wrapp_full_width ">
+<div id="client_comments" data-pos="pos-4" class="wrapp_full_width ">
     <div class="container">
         <div class="comments_wrapp">
             <div class="comments_header">
@@ -329,7 +329,8 @@
 <script src="lib/jquery.easing.1.3.js"></script>
 <script src="lib/pit-anchor/jquery-migrate.min.js"></script>
 <!--<script src="lib/parallax.min.js"></script>-->
-<!--<script src="lib/parallax.js"></script>-->
+<script src="lib/parallax_simple.min.js"></script>
+<!--<script src="lib/jquery.menu-anchor.js"></script>-->
 <!--<script src="paralax3d/parallax.js"></script>-->
 <script src="js/common.min.js"></script>
 

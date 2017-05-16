@@ -200,7 +200,8 @@ $(document).ready(function () {
     var counter = 1;
     
     (function navBar(){
-        $(".menu_bar").on("click", function(){
+        $(".menu_bar").on("click", function(e){
+            e.preventDefault();
 //           $("nav").toggle(); 
             if (counter === 1) {
                 $("header ul").animate({
@@ -258,6 +259,7 @@ $(document).ready(function () {
     $('.accordeon_content').hide();
 
     $('.accordeon_title').click(function(){
+        console.dir($(this).offset().top);
         $(this).parent().toggleClass('active').siblings().removeClass('active');
         $('.accordeon_content').slideUp();
 
@@ -307,21 +309,108 @@ $(document).ready(function () {
     $("body").append("<button class='btn_up'/>");
     
     $(window).scroll(function(){
+        var windscroll = $(window).scrollTop();
         if ($(window).scrollTop() > 50) {
             $(".btn_up").addClass("activeB");
         }
         else {
             $(".btn_up").removeClass("activeB");
         }
+        
+        
+        
     });
     
-    $(".btn_up").on("click", function(){
+    $(".btn_up").on("click", function(e){
+        e.preventDefault();
         $(this).removeClass("activeB");
        $("body").animate({'scrollTop': 0}, 800); 
        $("html").animate({'scrollTop': 0}, 800); 
         
     });
     
+    console.log("Helloddsd");
+    
+    
+    //  anchor navigation
+    
+    $('.nav a').click(function(e) {
+
+        $('.nav a.activeNavLink').removeClass('activeNavLink');
+        $(this).addClass('activeNavLink');
+
+        // Scroll to anchor
+
+//        $('html,body').animate({scrollTop: $($(this).attr('href')).offset().top - 70},'slow');
+//
+//        e.preventDefault();
+//        return false;
+
+    });
+
+    // On scroll, remove class on active element and add it to the new one
+
+    $(document).scroll(function() {
+
+//        var position = Math.floor($(this).scrollTop() / 800) + 1;
+//        console.log(position);
+//        console.log($(this).scrollTop());
+        
+        
+//        console.log($("[data-pos]"));
+ 
+        navigationAnchors(1);
+        navigationAnchors(2);
+        navigationAnchors(3);
+        navigationAnchors(4);
+        
+        function navigationAnchors(n) {
+            if (($(`[data-pos='pos-${n}']`).offset().top - $(window).scrollTop()) - 500 < 0) {
+                if (!$(`[data-pos='pos-${n}']`).next().offset().top - $(window).scrollTop() - 500 < 0 ) 
+                {
+                    $(`.nav a.link-${n}`).parent().siblings().children().removeClass('activeNavLink');
+                    console.dir($(`.nav a.link-${n}`).parent().siblings());
+                    $(`.nav a.link-${n}`).addClass('activeNavLink');
+                } else {
+                    $(`.nav a.link-${n}`).removeClass('activeNavLink');
+                }
+            } else {
+                $(`.nav a.link-${n}`).removeClass('activeNavLink');
+            }
+        }
+        
+        
+        
+        
+//        var pos2;
+//        if (($("[data-pos]").offset().top - $(window).scrollTop()) - 73 < 0) {
+//            pos2 = $("[data-pos]").attr("data-pos").split("-")[1];
+//            console.log(pos2);
+//            if (!$("[data-pos]").next().offset().top - $(window).scrollTop() - 73 < 0 ) 
+//            {
+//                console.dir($("[data-pos]").next().offset().top - $(window).scrollTop() - 73);
+//                $('.nav a.link-' + pos2).addClass('activeNavLink');
+//            } else {
+//                $('.nav a.link-' + pos2).removeClass('activeNavLink');
+//            }
+//            
+//            
+//        } else {
+//            pos2 = $("[data-pos]").attr("data-pos").split("-")[1];
+//            $('.nav a.link-' + pos2).removeClass('activeNavLink');
+//        }
+        
+        
+        
+        
+
+//        $('.nav a.activeNavLink').removeClass('activeNavLink');
+//        $('.nav a.link-' + position).addClass('activeNavLink');
+
+    });
+    
+    
+
     
 });
 
@@ -340,3 +429,40 @@ $(document).ready(function () {
 //
 //console.log(new Date(1430221424400))
 //console.log(new Date("2015-04-28T11:43:44.400Z"))
+
+//добавление активкласса линку в главной навигаци при скроле
+//if ($("#client_comments").offset().top-100 < windscroll ) {
+//    $('#nav4').addClass("activeNavLink");
+//    $('#nav4').parent().siblings().children()[0].removeClass("activeNavLink");
+//    console.log();
+//}
+//else {
+//    $('#nav4').removeClass("activeNavLink");
+//}
+//
+//if ($("#about_course").offset().top-100 < windscroll ) {
+//    $('#nav2').addClass("activeNavLink");
+//    $('#nav2').parent().siblings().children()[0].removeClass("activeNavLink");
+//    console.log();
+//}
+//else {
+//    $('#nav2').removeClass("activeNavLink");
+//}
+//
+//if ($("#related_course").offset().top-100 < windscroll ) {
+//    $('#nav3').addClass("activeNavLink");
+//    $('#nav3').parent().siblings().children()[0].removeClass("activeNavLink");
+//    console.log();
+//}
+//else {
+//    $('#nav3').removeClass("activeNavLink");
+//}
+//
+//if ($("#anderHeader").offset().top-100 < windscroll ) {
+//    $('#nav1').addClass("activeNavLink");
+//    $('#nav1').parent().siblings().children()[0].removeClass("activeNavLink");
+//    console.log();
+//}
+//else {
+//    $('#nav1').removeClass("activeNavLink");
+//}

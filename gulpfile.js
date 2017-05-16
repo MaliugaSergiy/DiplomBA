@@ -108,7 +108,8 @@ gulp.task('js', () => {
 		})
 		.bundle()
 		.pipe(source('common.min.js'))
-		.pipe(gulp.dest('build/js/'));
+		.pipe(gulp.dest('build/js/'))
+        .pipe(connect.reload());
 });
 
 

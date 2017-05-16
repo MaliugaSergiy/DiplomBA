@@ -100,7 +100,7 @@ header {
                     text-align: center;
                     transition: 0.3s;
 //                    width: 100px;
-                    &:hover {
+                    &:hover, &.activeNavLink {
                         background-color: $main-text;
                         color: #fff;
                         border-radius: 5px;
@@ -150,7 +150,7 @@ header {
                         background-color: rgba(77, 215, 200, 0.69);
                         &:hover {
                             background-color: rgba(77, 215, 200, 0.97);
-                            padding-left: 30px;
+                            padding-left: 25px;
                             border-radius: 0;
                         }
                     }
@@ -208,20 +208,26 @@ header {
             width: 100%;
             height: 100%;
             background-position: center;
-            background-attachment: fixed;
+            
             background-repeat: no-repeat;
         }
         
         .layer:nth-child(1) {
             background-image: url(../img/computer-2242264_1920.jpg);
-            
+            background-attachment: fixed;
 
         }
         .layer:nth-child(2) {
             background-image: url(../img/bg_sm_blur.png);
             opacity: 0.5;
             height: 100%;
+            height: 100%;
             background-position: center -220px;
+            @media screen and (max-width:740px) {
+                &{
+                    display: none !important; 
+                }
+            }
 //            opacity: 0.9;
             
             animation: parallaxBlur 3s both ease-in-out infinite alternate;
@@ -232,6 +238,11 @@ header {
             opacity: 0.5;
 //            opacity: 0.9;
             animation: parallaxBlurReverse 3s both ease-in-out infinite alternate;
+            @media screen and (max-width:740px) {
+                &{
+                    display: none !important; 
+                }
+            }
 
         }
         
@@ -385,7 +396,7 @@ header {
 //----------------------------
 // about course
 .abut_course {
-
+    background-color: #fff;
     
     .container {
         padding: 10px;
@@ -448,6 +459,7 @@ header {
             &:hover {
                 box-shadow: 2px 4px 5px 0 rgba(46, 61, 73, .15);
                 transform: translateY(3px);
+//                background: #0585aa;
             }
             ul li {
                 padding-left: 10px;
@@ -467,6 +479,9 @@ header {
             border-radius: $radius $radius 0 0;
             background-color: $rate-star;
             color: $main-text;
+            &:hover {
+                background-color: $rate-star;
+            }
             &:after {
                 content: '\f056';
             }
@@ -484,6 +499,16 @@ header {
             background: $main-text;
             border-radius: $radius;
             position: relative;
+            &:hover {
+                background: #0585aa;
+            }
+            
+            @media screen and (max-width:380px) {
+                & {
+                    font-size: 14px;
+                }
+            
+            }
             &::before {
                 content: "";
                 position: absolute;
@@ -591,6 +616,7 @@ header {
 .related_course {
     position: relative;
     background-color: transparent !important;
+    background-repeat: repeat;
     .parallax {
         background-image: url(../img/wall.gif);
 //        filter: brightness(50%) contrast(50%);
@@ -599,6 +625,7 @@ header {
     .container {
         h2 {
             padding-top: 30px;
+            position: relative;
             color: #ffffff;
             text-shadow: 0px 0px 15px  rgb(61, 131, 242);
             font-family: $header;
@@ -896,6 +923,15 @@ form#form {
             font-weight: bold;
             text-transform: uppercase;
             position: relative;
+            &:first-child {
+                margin-left: 20px;
+            }
+            &:last-child {
+                margin-right: 20px;
+            }
+            
+            
+            
             &:first-child::before {
                 content: "\f053    ";
                 position: relative;
@@ -1184,10 +1220,27 @@ form#form {
     box-shadow: 8px 8px 8px 0px rgba(13, 39, 59, 0.15);
     outline: none;
     pointer-events: none;
+    
+    @media screen and (max-width: 1400px) {
+        
+        right: 25px;
+    }
+    @media screen and (max-width: 480px) {
+
+        right: 0px;
+        border-radius: 50% 0 0 50%;
+        width: 35px;
+        height: 35px;
+        border-right: none;
+    }
+    
     &:hover {
         box-shadow: 3px 3px 8px 0px rgba(13, 39, 59, 0.15); 
         background: rgb(0, 158, 212);
         border: 2px solid rgb(0, 110, 147);
+        @media screen and (max-width: 480px) {
+            border-right: none;
+        }
     }
     &::after {
         content: "\f077";
@@ -1195,6 +1248,12 @@ form#form {
         color: rgba(255, 255, 255, 0.67);
         font-size: 20px;
         margin: auto;
+        
+        @media screen and (max-width: 480px) {
+            & {
+                font-size: 15px;
+            }
+        }
     }
     &:hover::after{
         animation: arrowUp 0.8s both infinite;
@@ -1211,102 +1270,6 @@ form#form {
 
 
 
-//----------------------------
-
-.next_block {
-    overflow: hidden;
-    img {
-        display: block;
-        width: 100%;
-    }
-
-    
-
-    .container {
-        margin: 0 auto;
-        max-width: 600px;
-        padding: 10px;
-        position: relative;
-    }
-
-    .container--offset {
-        margin-left: 0;
-    }
-
-    .scene {
-        margin: 0;
-        padding: 0;
-    }
-
-    .fill {
-        bottom: 5%;
-        left: 5%;
-        position: absolute;
-        right: 5%;
-        top: 5%;
-    }
-
-    .expand-width {
-        width: 100%;
-    }
-
-    .border {
-        border: 2px dashed #00ffaa;
-    }
-
-    .aspect {
-        opacity: 0.2;
-    }
-
-    .layer:nth-child(1) {
-        opacity: 1;
-        
-    }
-    .layer:nth-child(1) button {
-        transform: rotate(150deg);
-        
-    }
-
-    .layer:nth-child(2) {
-        opacity: 0.3;
-        animation: parallaxBlur 3s both ease-in-out infinite alternate;
-//        filter: blur(3px);
-    }
-    .layer:nth-child(2) button {
-        transform: rotate(120deg);
-    }
-
-    .layer:nth-child(3) {
-        animation: parallaxBlurReverse 3s both ease-in-out infinite alternate;
-        opacity: 0.2;
-        
-    }
-    .layer:nth-child(3) button {
-        transform: rotate(90deg);
-    }
-
-    .layer:nth-child(4) {
-        opacity: 0.6;
-    }
-    .layer:nth-child(4) button {
-        transform: rotate(60deg);
-    }
-
-    .layer:nth-child(5) {
-        opacity: 0.75;
-    }
-    .layer:nth-child(5) button {
-        transform: rotate(30deg);
-    }
-
-    .layer:nth-child(6) {
-        opacity: 0.9;
-    }
-    .layer:nth-child(6) button {
-        transform: rotate(0deg);
-    }
-
-}
 
 
 //----------------------------
