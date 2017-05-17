@@ -369,7 +369,7 @@ $(document).ready(function () {
                 if (!$(`[data-pos='pos-${n}']`).next().offset().top - $(window).scrollTop() - 500 < 0 ) 
                 {
                     $(`.nav a.link-${n}`).parent().siblings().children().removeClass('activeNavLink');
-                    console.dir($(`.nav a.link-${n}`).parent().siblings());
+//                    console.dir($(`.nav a.link-${n}`).parent().siblings());
                     $(`.nav a.link-${n}`).addClass('activeNavLink');
                 } else {
                     $(`.nav a.link-${n}`).removeClass('activeNavLink');
