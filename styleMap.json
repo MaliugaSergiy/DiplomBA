@@ -81,6 +81,30 @@
         ]
     },
     {
+        "featureType": "landscape.man_made",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "color": "#f2f8f9"
+            },
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape.man_made",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#71b1bc"
+            }
+        ]
+    },
+    {
         "featureType": "landscape.natural",
         "elementType": "all",
         "stylers": [

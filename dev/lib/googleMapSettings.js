@@ -14,6 +14,8 @@ function initMap() {
 
     var mainAcadLatLng = {lat: 50.400322, lng: 30.522159};
     //    {lat: 50.400322, lng: 30.520159};
+    
+    
 
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 16,
@@ -23,27 +25,25 @@ function initMap() {
         mapTypeControl: false,
         scaleControl: false,
         //        draggable: false,
-        //            draggable: false,
         styles: styleMap
-        //        center:new google.maps.LatLng( 50.400322,30.520159),
-
     });
 
 
 
     var imageMA = {
         //        url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
-        url: 'https://maliugasergiy.github.io/DiplomBA/build/img/Arrow_Luxury_Down.png',
+//        url: 'https://maliugasergiy.github.io/DiplomBA/build/img/Arrow_Luxury_Down.png',
+        url: 'img/Arrow_yellow.png',
         //         This marker is 20 pixels wide by 32 pixels high.
         //        size: new google.maps.Size(20, 32),
-        size: new google.maps.Size(66, 66),
+        size: new google.maps.Size(68, 135),
         // The origin for this image is (0, 0).
         origin: new google.maps.Point(0, 0),
         //        origin: new google.maps.Point(0, 0),
         // The anchor for this image is the base of the flagpole at (0, 32).
         //        anchor: new google.maps.Point(0, 32),
         anchor: new google.maps.Point(18, 18),
-        scaledSize: new google.maps.Size(36, 36)
+        scaledSize: new google.maps.Size(34, 66)
     };
     var shape = {
         coords: [1, 1, 1, 20, 18, 20, 18, 1],
@@ -68,7 +68,21 @@ function initMap() {
 
     markerMainAcademy.addListener('click', function() {
         infowindow.open(map, markerMainAcademy);
-    });
 
+    });
+    
+    google.maps.event.addDomListener(window, 'resize', function() {
+        var center = map.getCenter();
+        google.maps.event.trigger(map, "resize");
+        map.setCenter(center);
+    });
+    
+
+    
 }
+
+
+
+//window.addEventListener("resize", initMap);
+
 

@@ -21,22 +21,14 @@ a {
 header {
     box-shadow: 0px 3px 10px 0px rgba(46, 61, 73, 0.9);
     background: rgba(255, 255, 255, 0.77);
+//    background: rgb(255, 255, 255);
     position: fixed;
     top: 0;
     left: 0;
     z-index: 10;
     width: 100%;
     transition: 1s;
-    
-//    &::before {
-//        content: "";
-//        position: absolute;
-//        filter: blur(3px);
-////        filter: brightness(200%);
-//        width: 100%;
-//        height: 100%;
-//        background-color: rgba(255, 255, 255, 0.53);
-//    }
+
     .container {
         display: flex;
         padding: 20px 5px;
@@ -1278,15 +1270,18 @@ form#form {
 .contacts {
     margin-bottom: 300px;
     position: relative;
+   
     .contacts_container_wrapper {
         pointer-events: none;
         position: absolute;
+//        background-color: #F2F8F9;
         left: 0;
         top: 0;
         width: 100%;
         height: 100%;
-        z-index: 99999;
-        
+        z-index: 1;
+//        box-shadow: inset 0 0 20px 20px #F2F8F9;
+        box-shadow: inset 0px -100px 106px -24px rgba(242,248,249,1), inset 0px 100px 106px -24px rgba(242,248,249,1);
         
         .contacts_container {
             max-width: 1200px;
@@ -1295,7 +1290,7 @@ form#form {
             height: 100%;
             position: relative;
             .contacts_info {
-                background-color: rgba(0, 158, 212, 0.31);
+                background-color: rgba(219, 226, 232, 0.86);
                 pointer-events: auto;
                 border: 2px solid rgba(208, 208, 208, 0.77);
                 width: 300px;
@@ -1315,7 +1310,8 @@ form#form {
     }
     
     #map {
-        height: 500px;
+        height: 600px;
+        background-color: #F2F8F9;
     }
 }
 
