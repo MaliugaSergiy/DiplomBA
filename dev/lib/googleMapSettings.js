@@ -11,11 +11,8 @@ function initMap() {
     styleMapReq.open('GET', 'styleMap.json', false);
     styleMapReq.send();
 
-
-    var mainAcadLatLng = {lat: 50.400322, lng: 30.522159};
-    //    {lat: 50.400322, lng: 30.520159};
-    
-    
+    var mainAcadLatLng = {lat: 50.400322, lng: 30.523800};
+//    var mainAcadLatLng = {lat: 50.400322, lng: 30.520159};
 
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 16,
@@ -28,23 +25,17 @@ function initMap() {
         styles: styleMap
     });
 
-
-
     var imageMA = {
-        //        url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
-//        url: 'https://maliugasergiy.github.io/DiplomBA/build/img/Arrow_Luxury_Down.png',
         url: 'img/Arrow_yellow.png',
-        //         This marker is 20 pixels wide by 32 pixels high.
-        //        size: new google.maps.Size(20, 32),
         size: new google.maps.Size(68, 135),
-        // The origin for this image is (0, 0).
         origin: new google.maps.Point(0, 0),
-        //        origin: new google.maps.Point(0, 0),
-        // The anchor for this image is the base of the flagpole at (0, 32).
-        //        anchor: new google.maps.Point(0, 32),
-        anchor: new google.maps.Point(18, 18),
+        anchor: new google.maps.Point(17, 66),
         scaledSize: new google.maps.Size(34, 66)
     };
+//    var imageMA = {
+//        path: google.maps.SymbolPath.CIRCLE,
+//        scale: 1
+//    };
     var shape = {
         coords: [1, 1, 1, 20, 18, 20, 18, 1],
         type: 'poly'
@@ -57,7 +48,7 @@ function initMap() {
         map: map,
         icon: imageMA,
         draggable:true,
-        shape: shape,
+//        shape: shape,
         animation: google.maps.Animation.BOUNCE,
         title: "Main Academy"
     });
@@ -72,9 +63,20 @@ function initMap() {
     });
     
     google.maps.event.addDomListener(window, 'resize', function() {
+//        if (window.innerWidth < 690) {
+//            mainAcadLatLng = mainAcademyCoordinate;
+//            console.log(window.innerWidth);
+//        }
+        
         var center = map.getCenter();
         google.maps.event.trigger(map, "resize");
-        map.setCenter(center);
+        
+        if (window.innerWidth < 690) {
+            map.setCenter(mainAcademyCoordinate);
+        }else {
+            map.setCenter(mainAcadLatLng);
+        }
+        
     });
     
 

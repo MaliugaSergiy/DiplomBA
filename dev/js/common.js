@@ -363,10 +363,11 @@ $(document).ready(function () {
         navigationAnchors(2);
         navigationAnchors(3);
         navigationAnchors(4);
+        navigationAnchors(5);
         
         function navigationAnchors(n) {
-            if (($(`[data-pos='pos-${n}']`).offset().top - $(window).scrollTop()) - 500 < 0) {
-                if (!$(`[data-pos='pos-${n}']`).next().offset().top - $(window).scrollTop() - 500 < 0 ) 
+            if (($(`[data-pos='pos-${n}']`).offset().top - $(window).scrollTop()) - 300 < 0) {
+                if (!$(`[data-pos='pos-${n}']`).next().offset().top - $(window).scrollTop() - 300 < 0 ) 
                 {
                     $(`.nav a.link-${n}`).parent().siblings().children().removeClass('activeNavLink');
 //                    console.dir($(`.nav a.link-${n}`).parent().siblings());
