@@ -50,7 +50,7 @@ function initMap() {
         type: 'poly'
     };
 
-
+ 
     var mainAcademyCoordinate = {lat: 50.400322, lng: 30.520159};
     var markerMainAcademy = new google.maps.Marker({
         position: mainAcademyCoordinate,
