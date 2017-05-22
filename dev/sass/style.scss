@@ -1269,7 +1269,7 @@ form#form {
 
 
 .contacts {
-    margin-bottom: 300px;
+//    margin-bottom: 300px;
     position: relative;
    
     .contacts_container_wrapper {
@@ -1330,8 +1330,9 @@ form#form {
     }
     
     #map {
-        height: 600px;
+        height: 100vh;
         background-color: #F2F8F9;
+//        width: 510%;
     }
 }
 

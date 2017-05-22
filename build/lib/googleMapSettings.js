@@ -16,6 +16,7 @@ function initMap() {
 
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 16,
+        disableDefaultUI: true,
         center: mainAcadLatLng,
         scrollwheel: false,
         navigationControl: false,

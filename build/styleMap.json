@@ -351,6 +351,19 @@
         ]
     },
     {
+        "featureType": "road.highway",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "color": "#e8bf26"
+            },
+            {
+                "lightness": "0"
+            }
+        ]
+    },
+    
+    {
         "featureType": "transit.station",
         "elementType": "all",
         "stylers": [

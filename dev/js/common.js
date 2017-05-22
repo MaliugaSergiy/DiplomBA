@@ -175,21 +175,46 @@ $(document).ready(function () {
         closeOnBgClick: false
     });
     
+    function validateEmail(email) {
+        var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
+    }
+    
     var currentPost = {};
     $("#form").on("submit", function(e){
         e.preventDefault();
-        console.dir($(this)[0]);
-        currentPost.name = $(this)[0][0].value;
-        currentPost.email = $(this)[0][1].value;
-        currentPost.rate = $(this)[0][2].value;
-        currentPost.post = $(this)[0][3].value;
+        currentPost.name = this.elements.name.value;
+        currentPost.email = this.elements.email.value;
+        currentPost.rate = this.elements.rate.value;
+        currentPost.post = this.elements.post.value;
         currentPost.dateMS = Date.now();
         
-        arrComments.push(currentPost);
-        localStorage.setItem("comments", JSON.stringify(arrComments));
-        makeComments();
-        makePreloaderBox();
-        $.magnificPopup.close();
+        if (validateEmail(currentPost.email)) {
+            arrComments.push(currentPost);
+            localStorage.setItem("comments", JSON.stringify(arrComments));
+            makeComments();
+            makePreloaderBox();
+            
+            var http = new XMLHttpRequest();
+            var url = "process_form.json";
+            var params = "lorem=ipsum&name=binny";
+            http.open("POST", url, true);
+            http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            http.onreadystatechange = function() {//Call a function when the state changes.
+                if(http.readyState == 4 && http.status == 200) {
+                    alert(http.responseText);
+                }
+            };
+            console.log(JSON.stringify(currentPost));
+            http.send(JSON.stringify(currentPost));
+            
+            
+            $.magnificPopup.close();            
+        } else {
+            alert("not valid Email");
+        }
+        
+        
     });
     
     
@@ -278,10 +303,11 @@ $(document).ready(function () {
     
     modalContent.on("click", function(e){
 
-        console.log(e.target.tagName);
         if (e.target.tagName != "SPAN") {
+            $("body").css("overflow","hidden");
             $(this).addClass("modalActive");
         } else{
+            $("body").css("overflow","auto");
             $(this).removeClass("modalActive");
         }
         
