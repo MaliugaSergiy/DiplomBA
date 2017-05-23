@@ -197,7 +197,9 @@ $(document).ready(function () {
             
             var http = new XMLHttpRequest();
             var url = "process_form.json";
-            var params = "lorem=ipsum&name=binny";
+            console/defin
+//            var url = form.attr("action");
+            
             http.open("POST", url, true);
             http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             http.onreadystatechange = function() {//Call a function when the state changes.
@@ -205,6 +207,8 @@ $(document).ready(function () {
                     alert(http.responseText);
                 }
             };
+            
+            
             console.log(JSON.stringify(currentPost));
             http.send(JSON.stringify(currentPost));
             
@@ -244,6 +248,17 @@ $(document).ready(function () {
             }
         });
     })();
+    
+    window.addEventListener("resize", function() {
+    
+        if (window.innerWidth > 690) {
+            counter = 1;
+            $("header ul").css("left", "");
+            $(".menu_bar a").css("color", "");
+        }
+        
+    });
+    
     
     
     //Header
@@ -436,7 +451,14 @@ $(document).ready(function () {
 
     });
     
+    // footer
     
+    $(window).on("scroll", function(){
+        var footer = document.getElementById("footer"),
+            footerPosition = footer.offsetTop;
+        console.log(footer.offsetTop);
+//        console.log(window.scrollY);
+    });
 
     
 });

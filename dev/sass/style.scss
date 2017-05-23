@@ -92,10 +92,17 @@ header {
                     text-align: center;
                     transition: 0.3s;
 //                    width: 100px;
+                    
                     &:hover, &.activeNavLink {
                         background-color: $main-text;
                         color: #fff;
                         border-radius: 5px;
+                    }
+                    &:hover {
+                        background-color: #0585aa;
+                    }
+                    &.activeNavLink:hover{
+                        background-color: $main-text;
                     }
                 }
             }
@@ -107,7 +114,7 @@ header {
     left: 0;
 }
 
-@media screen and (max-width:800px) {
+    @media screen and (max-width:800px) {
     header {
         .container {
             flex-wrap: wrap;
@@ -140,10 +147,19 @@ header {
                         text-align: left;
                         width: 100%;
                         background-color: rgba(77, 215, 200, 0.69);
-                        &:hover {
+                        
+                        &:hover, &.activeNavLink {
                             background-color: rgba(77, 215, 200, 0.97);
                             padding-left: 25px;
                             border-radius: 0;
+                            color: $main-text;
+                        }
+                        &:hover {
+                            color: #fff;
+                        }   
+                        &.activeNavLink:hover{
+                            background-color: rgba(77, 215, 200, 0.97);
+                            color: #fff;
                         }
                     }
                 }
@@ -1148,7 +1164,6 @@ form#form {
             cursor: pointer;
             color: $main-textBL;
             display: flex;
-            //            flex-direction: column;
             justify-content: space-between;
             overflow: auto;
             &:hover {
@@ -1156,7 +1171,6 @@ form#form {
             }
             .comment_content {
                 position: relative;
-                //                background-color: #ff6262;
                 height: 100%;
                 height: auto;
                 justify-content: space-between;
@@ -1184,7 +1198,6 @@ form#form {
         display: inline-block;
         background-image: url(../img/star-rating1.png);
         background-position: 0 0;
-        //        background-size: 85.71428% 85.71428%;
     }
     .startest-active {
         background-position: 0 17px;
@@ -1269,6 +1282,7 @@ form#form {
 
 
 .contacts {
+//    margin-bottom: 70px;
 //    margin-bottom: 300px;
     position: relative;
    
@@ -1304,9 +1318,9 @@ form#form {
                 background-color: rgba(219, 226, 232, 0.86);
                 pointer-events: auto;
                 border: 2px solid rgba(208, 208, 208, 0.77);
-                width: 300px;
+//                width: 300px;
                 position: absolute;
-                bottom: 50px;
+//                bottom: 50px;
                 top: 50px;
                 right: 50px;
                 border-radius: 10px;
@@ -1315,12 +1329,86 @@ form#form {
                 display: flex;
                 flex-direction: column;
                 justify-content: space-around;
+                a {
+                    padding-bottom: 15px;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    color: $main-text;
+                    display: block;
+                    transition: 0.3s;
+                    display: flex;
+                    align-items: center;
+                        
+                    &::before {
+                        content: "";
+                        display: inline-block;
+                        padding-right: 10px;
+                        background-repeat: no-repeat;
+                        transition: 0.5s;
+                    }
+                    &:nth-child(1)::before{
+                        width: 25px;
+                        height: 25px;
+                        background-size: 25px 25px;
+                        background-image: url(../img/contacts/facebook100.png);
+                    }
+                    &:nth-child(2)::before{
+                        width: 44px;
+                        height: 25px;
+                        background-size: 44px 25px;
+                        background-image: url(../img/contacts/vk.png);
+                    }
+                    &:nth-child(3)::before{
+                        width: 25px;
+                        height: 25px;
+                        background-size: 25px 25px;
+                        background-image: url(../img/contacts/email.png);
+                    }
+                    &:nth-child(4)::before{
+                        width: 25px;
+                        height: 25px;
+                        background-size: 25px 25px;
+                        background-image: url(../img/contacts/telephon.png);
+                    }
+                    &:nth-child(5)::before{
+                        width: 20px;
+                        height: 25px;
+                        background-size: 20px 25px;
+                        background-image: url(../img/contacts/Kyivstar_logo100.png);
+                    }
+                    
+                    
+                    &:nth-child(1):hover::before{
+                        background-image: url(../img/contacts/hover/facebook100.png);
+                    }
+                    &:nth-child(2):hover::before{
+                        background-image: url(../img/contacts/hover/vk.png);
+                    }
+                    &:nth-child(3):hover::before{
+                        background-image: url(../img/contacts/hover/email.png);
+                    }
+                    &:nth-child(4):hover::before{
+                        background-image: url(../img/contacts/hover/telephon.png);
+                    }
+                    &:nth-child(5):hover::before{
+                        background-image: url(../img/contacts/hover/Kyivstar_logo100.png);
+                    }
+                    
+                    
+                    &:hover {
+                        color: $rate-star;
+                    }
+                    &:last-child {
+                        padding-bottom: 0;
+                    }
+                }
                 @media screen and (max-width: 690px) {
                     & {
-                        left: 15px;
-                        right: 15px;
+                        left: 50%;
+                        transform: translateX(-50%);
+//                        right: 15px;
                         bottom: 15px;
-                        width: auto;
+                        width: 200px;
                         height: 200px;
                         top: auto
                     }
@@ -1336,7 +1424,19 @@ form#form {
     }
 }
 
-
+footer {
+//    background-image: linear-gradient(to bottom, transparent 0%, #F2F8F9 50%,   #F2F8F9 100%);
+    background-image: linear-gradient(to bottom, $main-bg  0%, $main-text 100%);
+    height: 70px;
+    width: 100%;
+//    position: fixed;
+    bottom: 0;
+    left: 0;
+//    border: 1px solid #000;
+    .container {
+        
+    }
+}
 
 
 
