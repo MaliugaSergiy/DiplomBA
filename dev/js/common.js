@@ -197,7 +197,7 @@ $(document).ready(function () {
             
             var http = new XMLHttpRequest();
             var url = "process_form.json";
-            console/defin
+//            console/defin
 //            var url = form.attr("action");
             
             http.open("POST", url, true);
@@ -207,7 +207,6 @@ $(document).ready(function () {
                     alert(http.responseText);
                 }
             };
-            
             
             console.log(JSON.stringify(currentPost));
             http.send(JSON.stringify(currentPost));
@@ -256,14 +255,14 @@ $(document).ready(function () {
                 $(".overlayBody").css("backgroundColor", "");
                 setTimeout(function(){
                     $(".overlayBody").remove();
-                }, 300)
+                }, 300);
             }
         });
     })();
     
     window.addEventListener("resize", function() {
     
-        if (window.innerWidth > 690) {
+        if (window.innerWidth > 800 ) {
             counter = 1;
             $("header ul").css("left", "");
             $(".menu_bar a").css("color", "");
@@ -274,19 +273,22 @@ $(document).ready(function () {
     });
     
     $("header ul a").on("click", function(){
-        if (window.innerWidth < 690) {
+        
+        if (window.innerWidth < 800) {
             counter = 1;
             $("header ul").animate({
                 left: "-100%"
             }, 300);
             $(".menu_bar a").css("color", "");
             $(".overlayBody").css("backgroundColor", "");
+            $(".overlayBody").remove();
+            $("body").css("overflow", "auto");
             setTimeout(function(){
                 $(".overlayBody").remove();
             }, 300);
             
         }
-    })
+    });
     
     
     
