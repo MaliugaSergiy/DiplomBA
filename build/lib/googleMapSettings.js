@@ -48,7 +48,7 @@ function initMap() {
         position: mainAcademyCoordinate,
         map: map,
         icon: imageMA,
-        draggable:true,
+        draggable:false,
 //        shape: shape,
         animation: google.maps.Animation.BOUNCE,
         title: "Main Academy"

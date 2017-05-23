@@ -6,7 +6,9 @@
 @import "_swttings";
 @import "_mp_animation";
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&subset=cyrillic,cyrillic-ext,latin-ext');
-body {}
+body {
+    position: relative;
+}
 
 .hidden {
     display: none;
@@ -25,7 +27,7 @@ header {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 10;
+    z-index: 10000;
     width: 100%;
     transition: 1s;
 
@@ -1439,7 +1441,18 @@ footer {
 }
 
 
-
+// Overlay 
+.overlayBody {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 999;
+//    background-color: rgba(13,39,59,.85);
+    background-color: rgba(13,39,59,0);
+    transition: 0.5s;
+}
 
 
 

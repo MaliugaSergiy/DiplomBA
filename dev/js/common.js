@@ -227,7 +227,7 @@ $(document).ready(function () {
     
     // navBAR
     var counter = 1;
-    
+    var overlayBody = $("<div class='overlayBody'></div>");
     (function navBar(){
         $(".menu_bar").on("click", function(e){
             e.preventDefault();
@@ -235,16 +235,28 @@ $(document).ready(function () {
             if (counter === 1) {
                 $("header ul").animate({
                     left: "0",
-                    
                 }, 300);
                 $(".menu_bar a").css("color", "#4DD7C8");
+                
+                $("body").append(overlayBody);
+                setTimeout(function(){
+                    $(".overlayBody").css("backgroundColor", "rgba(13,39,59,.85)");
+                });
+                $("body").css("overflow", "hidden");
+                
                 counter =0;
             } else {
                 counter = 1;
+                
+                $("body").css("overflow", "auto");
                 $("header ul").animate({
                     left: "-100%"
                 }, 300);
                 $(".menu_bar a").css("color", "");
+                $(".overlayBody").css("backgroundColor", "");
+                setTimeout(function(){
+                    $(".overlayBody").remove();
+                }, 300)
             }
         });
     })();
@@ -255,9 +267,26 @@ $(document).ready(function () {
             counter = 1;
             $("header ul").css("left", "");
             $(".menu_bar a").css("color", "");
+            $("body").css("overflow", "auto");
+            $(".overlayBody").remove();
         }
         
     });
+    
+    $("header ul a").on("click", function(){
+        if (window.innerWidth < 690) {
+            counter = 1;
+            $("header ul").animate({
+                left: "-100%"
+            }, 300);
+            $(".menu_bar a").css("color", "");
+            $(".overlayBody").css("backgroundColor", "");
+            setTimeout(function(){
+                $(".overlayBody").remove();
+            }, 300);
+            
+        }
+    })
     
     
     
