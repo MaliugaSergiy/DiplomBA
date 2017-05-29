@@ -1,6 +1,24 @@
 import Parallax from './parallax-js';
 
 $(document).ready(function () {
+    
+    
+    //Progress bar on top by scrolling
+    
+    $(window).scroll (function () {
+        var ratio = $(document).scrollTop () / (($(document).height () - $(window).height ()) / 100);
+        $("#progress_preloader").width (ratio + "%");
+    });
+    
+    
+    var jqxhr = $.getJSON("dates.json", function(data){
+        console.log(data);
+    });
+    
+    console.log("...");
+    console.log(jqxhr);
+    
+    
 	var scene = $('#scene').get(0);
 	var parallax = new Parallax(scene);
     // контейнер с комментариями
@@ -27,9 +45,20 @@ $(document).ready(function () {
     // отображение названия месяцев
 
     var months = new XMLHttpRequest();
+    
+//    months.addEventListener("readystatechange", function(){
+//        if (this.readyState == 4 && this.status == 200) {
+//            var arrDates = JSON.parse(this.responseText);
+//        }
+//    });
+    
+    
     months.open('GET', 'dates.json', false);
+//    months.open('GET', 'dates.json', true);
     months.send();
     var arrDates = JSON.parse(months.responseText);
+//    console.log(arrDates);
+
     
     // сортировка комментариев
     var configSelect = {
@@ -69,18 +98,15 @@ $(document).ready(function () {
             let language = "ru";
             let month = arrDates[language][date.getMonth()].toLowerCase();
             let dateToPost = `${date.getDate()} ${month} ${date.getFullYear()} `;
-            html += `<div class="comment comments_item">`;
-            
-            html += `<div class="comment_content">`;
-            html += `<span class="closeModal">&times;</span>`;
-            html += `<div class="comm_header">`;
-            html += `<p class="user_name">${i.name}</p>`;
-            html += setRateStars(i.rate);
-            html += `</div>`;
-            html += `<p class="user_post">${i.post}</p>`;
-            html += `<div class="data_post">${dateToPost}</div>`;
-            html += `</div>`;
-            html += `</div>`;
+            html += `<div class="comment comments_item">
+                    <div class="comment_content">
+                    <span class="closeModal">&times;</span>
+                    <div class="comm_header">
+                    <p class="user_name">${i.name}</p>
+                    ${setRateStars(i.rate)}</div>
+                    <p class="user_post">${i.post}</p>
+                    <div class="data_post">${dateToPost}</div>
+                    </div></div>`;
             connentBox.insertAdjacentHTML("beforeEnd", html);
         });
     }
@@ -100,8 +126,8 @@ $(document).ready(function () {
         arrStars[item - 1]++;
     });
 
-    console.log(starQ);
-    console.log(arrStars);
+//    console.log(starQ);
+//    console.log(arrStars);
 
     // формируем блок с графиками
     var rateBox = document.querySelector(".rate");
@@ -109,26 +135,22 @@ $(document).ready(function () {
     function makePreloaderBox() {
         averageRate = totalRate / arrComments.length; // средняя величина оценки
         let html = "";
-        html += `<div class="comments_header">`;
-        html += `<span class="votes_num">${averageRate.toFixed(1)}</span>`;
-        //    html += `<div class="user_rate">`;
-        html += setRateStars(Math.round(averageRate));
-        //    html += `</div>`;
-        html += `<div class="votesAmount">(${arrComments.length})</div>`;
-        html += `</div>`;
-        html += `<div class="stars_container">`;
+        html += `<div class="comments_header">
+                <span class="votes_num">${averageRate.toFixed(1)}</span>
+                ${setRateStars(Math.round(averageRate))}
+                <div class="votesAmount">(${arrComments.length})</div>
+                </div><div class="stars_container">`;
         for (let i = 0; i < 5; i++) {
             let Star = (i == 0) ? "star" : "stars";
-            html += `<div class="preloader_item">`;
-            html += `<div class="before_preloader">${i+1} ${Star}</div>`;
+            html += `<div class="preloader_item">
+                    <div class="before_preloader">${i+1} ${Star}</div>`;
             let persent = (100 * arrStars[i] / arrComments.length).toFixed(1);
             let bg_gradient = `style='background: linear-gradient(90deg, #d0b430 0%, #ECC81A ${persent}%, #DBE2E8 ${persent}%, #DBE2E8 100%)'`;
-            html += `<div class="rate_preloader" ${bg_gradient}>`;
-            html += ` <div class="amount_rate">${arrStars[i]}</div>`;
-            html += `</div>`;
-
-            html += ` <div class="after_preloader">${persent}%</div>`;
-            html += `</div>`;
+            html += `<div class="rate_preloader" ${bg_gradient}>
+                    <div class="amount_rate">${arrStars[i]}</div>
+                    </div>
+                    <div class="after_preloader">${persent}%</div>
+                    </div>`;
         }
         html += `</div>`;
 
@@ -181,8 +203,11 @@ $(document).ready(function () {
     }
     
     var currentPost = {};
+    
     $("#form").on("submit", function(e){
+        
         e.preventDefault();
+        
         currentPost.name = this.elements.name.value;
         currentPost.email = this.elements.email.value;
         currentPost.rate = this.elements.rate.value;
@@ -190,42 +215,67 @@ $(document).ready(function () {
         currentPost.dateMS = Date.now();
         
         if (validateEmail(currentPost.email)) {
+            // save to LocalStorage
             arrComments.push(currentPost);
             localStorage.setItem("comments", JSON.stringify(arrComments));
             makeComments();
             makePreloaderBox();
             
-            var http = new XMLHttpRequest();
-            var url = "process_form.json";
-//            console/defin
-//            var url = form.attr("action");
+            // Make request
+//            var http = new XMLHttpRequest();
+//            var url = "comments.php";
+//            
+//            http.open("POST", url, true);
+//            http.setRequestHeader("Content-type", "application/json");
+//            http.onreadystatechange = function() {
+//                if(http.readyState == 4 && http.status == 200) {
+//                    alert("HURRA1");
+//                }
+//            };
+//            
+//
+//            http.send(JSON.stringify(currentPost));
             
-            http.open("POST", url, true);
-            http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            http.onreadystatechange = function() {//Call a function when the state changes.
-                if(http.readyState == 4 && http.status == 200) {
-                    alert(http.responseText);
+            //---------------------------------------------test_1
+            var params = JSON.stringify(currentPost);
+            console.log(params);
+
+            $.ajax({
+                type: 'POST',
+                data: params,
+                url: 'comments.php',
+                success: function(data){
+                    alert("success");
+                },
+                error: function(){
+                    alert("error");
                 }
-            };
+            });
             
-            console.log(JSON.stringify(currentPost));
-            http.send(JSON.stringify(currentPost));
             
+//            $.post(
+//                "comments.php",
+//                {
+//                    commennttss : JSON.stringify(arrComments)
+//                },
+//                function() {
+//                    alert("HURRA2");
+//                }
+//            );
+            //---------------------------------------------test_1 end
             
             $.magnificPopup.close();            
         } else {
             alert("not valid Email");
         }
         
-        
     });
-    
-    
-    
-    
-    
+
     // navBAR
     var counter = 1;
+    
+    $(".overlayBody").css("marfinRight", -getScrollBarWidth());
+    
     var overlayBody = $("<div class='overlayBody'></div>");
     (function navBar(){
         $(".menu_bar").on("click", function(e){
@@ -237,7 +287,9 @@ $(document).ready(function () {
                 }, 300);
                 $(".menu_bar a").css("color", "#4DD7C8");
                 
-                $("body").append(overlayBody);
+                $("html").append(overlayBody);
+                $("body").css("marginRight", getScrollBarWidth ());
+                
                 setTimeout(function(){
                     $(".overlayBody").css("backgroundColor", "rgba(13,39,59,.85)");
                 });
@@ -246,7 +298,7 @@ $(document).ready(function () {
                 counter =0;
             } else {
                 counter = 1;
-                
+                $("body").css("marginRight", "");
                 $("body").css("overflow", "auto");
                 $("header ul").animate({
                     left: "-100%"
@@ -264,6 +316,7 @@ $(document).ready(function () {
     
         if (window.innerWidth > 800 ) {
             counter = 1;
+            $("body").css("marginRight", "");
             $("header ul").css("left", "");
             $(".menu_bar a").css("color", "");
             $("body").css("overflow", "auto");
@@ -401,9 +454,6 @@ $(document).ready(function () {
         
     });
     
-    console.log("Helloddsd");
-    
-    
     //  anchor navigation
     
     $('.nav a').click(function(e) {
@@ -487,9 +537,54 @@ $(document).ready(function () {
     $(window).on("scroll", function(){
         var footer = document.getElementById("footer"),
             footerPosition = footer.offsetTop;
-        console.log(footer.offsetTop);
+//        console.log(footer.offsetTop);
 //        console.log(window.scrollY);
     });
+    
+    
+    
+    //-------------------------------------------------------------------------
+    
+    // GET SCROLLBAR width-----------------------------------------------------
+
+    function getScrollBarWidth () {
+        var inner = document.createElement('p');
+        inner.style.width = "100%";
+        inner.style.height = "200px";
+
+        var outer = document.createElement('div');
+        outer.style.position = "absolute";
+        outer.style.top = "0px";
+        outer.style.left = "0px";
+        outer.style.visibility = "hidden";
+        outer.style.width = "200px";
+        outer.style.height = "150px";
+        outer.style.overflow = "hidden";
+        outer.appendChild (inner);
+
+        document.body.appendChild (outer);
+        var w1 = inner.offsetWidth;
+        outer.style.overflow = 'scroll';
+        var w2 = inner.offsetWidth;
+        if (w1 == w2) w2 = outer.clientWidth;
+
+        document.body.removeChild (outer);
+
+        return (w1 - w2);
+    }
+
+    // second sollution
+    
+    function getScrollBarWidth2 () {
+        var $outer = $('<div>').css({visibility: 'hidden', width: 100, overflow: 'scroll'}).appendTo('body'),
+            widthWithScroll = $('<div>').css({width: '100%'}).appendTo($outer).outerWidth();
+        $outer.remove();
+        return 100 - widthWithScroll;
+    };
+    
+    // ----------------------------------------------------- GET SCROLLBAR width
+    //-------------------------------------------------------------------------
+   
 
     
 });
